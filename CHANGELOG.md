@@ -7,3 +7,6 @@
 - Added Docker Compose stack for Synapse, Element Web, PostgreSQL, Redis, Coturn, and Nginx.
 - Added templates for generated runtime configuration.
 - Added backup, restore, package, doctor, status, update, certificate, admin user, random-password user creation, and service password rotation commands.
+- Fixed Nginx template rendering so native Nginx variables are preserved.
+- Added domain/no-domain install mode with IP-only HTTP fallback and improved Let's Encrypt webroot flow.
+- Improved Synapse healthcheck to avoid relying on wget inside the Synapse image.

@@ -41,7 +41,7 @@ services:
     volumes:
       - ./synapse:/data
     healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:8008/health || exit 1"]
+      test: ["CMD-SHELL", "python -c 'import urllib.request; urllib.request.urlopen(\"http://localhost:8008/health\", timeout=5).read()' || exit 1"]
       interval: 15s
       timeout: 5s
       retries: 40
@@ -87,6 +87,7 @@ services:
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
       - ./certs:/etc/letsencrypt:ro
+      - ./certs/www:/var/www/certbot:ro
       - ./synapse/media_store:/var/lib/matrix-synapse/media_store:ro
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://localhost/healthz | grep ok"]

@@ -47,6 +47,11 @@ Supported target distributions include Ubuntu 22.04+, Ubuntu 24.04+, Ubuntu 26.0
 
 Open ports: `80/tcp`, `443/tcp`, `8448/tcp`, `3478/tcp`, `3478/udp`, and `5349/tcp`.
 
+
+## Domain or IP-only installation
+
+During `sudo ./laziestmatrix install`, the installer asks whether you have a domain pointing at the server. If you answer **no**, LAZIESTMATRIX configures Matrix and Element for the detected/public IP address, keeps HTTPS disabled, and skips Let's Encrypt because public certificates require a real DNS name. If you answer **yes**, the installer asks for the domain and can automatically issue a Let's Encrypt certificate with the `cert` flow.
+
 ## Configuration model
 
 Users should edit only `.env` if manual changes are ever needed. Runtime files are generated into:

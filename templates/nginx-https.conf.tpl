@@ -1,4 +1,10 @@
-server { listen 80; server_name ${MATRIX_DOMAIN}; location = /healthz { return 200 'ok'; } location / { return 301 https://$host$request_uri; } }
+server {
+  listen 80;
+  server_name ${MATRIX_DOMAIN};
+  location = /healthz { return 200 'ok'; add_header Content-Type text/plain; }
+  location ^~ /.well-known/acme-challenge/ { root /var/www/certbot; default_type text/plain; }
+  location / { return 301 https://$host$request_uri; }
+}
 server {
   listen 443 ssl http2; server_name ${MATRIX_DOMAIN};
   ssl_certificate /etc/letsencrypt/live/${MATRIX_DOMAIN}/fullchain.pem;
