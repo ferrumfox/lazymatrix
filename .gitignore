@@ -1,0 +1,14 @@
+.env
+/data/
+/logs/
+/backups/*.tar.zst
+/backups/tmp/
+/certs/
+/synapse/data/
+/postgres/data/
+/redis/data/
+/coturn/data/
+/element/config.json
+/nginx/conf.d/*.conf
+*.log
+.DS_Store

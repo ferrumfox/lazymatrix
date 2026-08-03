@@ -1,0 +1,17 @@
+listening-port=3478
+tls-listening-port=5349
+listening-ip=0.0.0.0
+relay-ip=${PUBLIC_IP}
+external-ip=${PUBLIC_IP}
+realm=${TURN_REALM}
+use-auth-secret
+static-auth-secret=${TURN_SHARED_SECRET}
+no-multicast-peers
+no-loopback-peers
+fingerprint
+lt-cred-mech
+user-quota=12
+total-quota=1200
+stale-nonce=600
+cert=/etc/laziestmatrix/certs/live/${MATRIX_DOMAIN}/fullchain.pem
+pkey=/etc/laziestmatrix/certs/live/${MATRIX_DOMAIN}/privkey.pem
